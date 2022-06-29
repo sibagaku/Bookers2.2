@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :correct_user,only:[:edit,:update]
   
   def index
-    @book = Book.new
+    @new_book = Book.new
+    @book = @new_book
     @book.user = current_user
     @user = current_user
     @users = User.all
@@ -11,7 +12,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @book = Book.new
+    @new_book = Book.new
+    @book = @new_book
     @book.user = current_user
     @books = @user.books
   end
