@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'book_comments/create'
+  get 'book_comments/destroy'
   get 'favorites/create'
   get 'favorites/destroy'
   root to: 'home#top'
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :books, only:[:new, :index, :create, :show, :edit, :update, :destroy] do
+    resources :book_comments, only:[:create, :destroy]
     resource :favorites, only:[:create, :destroy]
   end
   resources :users, only:[:index, :show, :edit, :update]
