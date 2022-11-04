@@ -71,11 +71,13 @@
           </div>
         </div>
       </nav>
-      
     </header>
     
     <main>
-    <%= yield %>
+      <div class="d-flex justify-content-center mb-2">
+          <%= render 'searches/form' %>
+        </div>
+      <%= yield %>
     </main>
     
     <footer>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'searches/search'
   get 'book_comments/create'
   get 'book_comments/destroy'
   get 'favorites/create'
@@ -13,5 +14,6 @@ Rails.application.routes.draw do
     resource :favorites, only:[:create, :destroy]
   end
   resources :users, only:[:index, :show, :edit, :update]
+  get '/search', to: 'searches#search'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
