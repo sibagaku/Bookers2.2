@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'relationships/followings'
-  get 'relationships/followers'
-  get 'searches/search'
-  get 'book_comments/create'
-  get 'book_comments/destroy'
-  get 'favorites/create'
-  get 'favorites/destroy'
+  get 'chat/:id' => "chats#show", as: "chat"
+  resources :chats, only:[:create]
+  # get 'relationships/followings'
+  # get 'relationships/followers'
+  # get 'searches/search'
+  # get 'book_comments/create'
+  # get 'book_comments/destroy'
+  # get 'favorites/create'
+  # get 'favorites/destroy'
   root to: 'home#top'
   get "home/about" => "home#about"
 
